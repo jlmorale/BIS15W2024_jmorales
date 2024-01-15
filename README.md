@@ -1,8 +1,4 @@
 ---
-output: 
-  html_document: 
-    keep_md: true
----
 
 # BIS15W2024_jmorales
 
