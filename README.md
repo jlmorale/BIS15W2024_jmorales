@@ -12,4 +12,4 @@ I am Jocelyn Morales. I am majoring in Animal Science, specializing in Animal Be
 
 ## Contact Information
 
-[Jocelyn Morales] ([jlmorales\@ucdavis.edu](mailto:jlmorales@ucdavis.edu){.email})
+[jlmorales\@ucdavis.edu](mailto:jlmorales@ucdavis.edu)
