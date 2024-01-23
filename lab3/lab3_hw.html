@@ -762,13 +762,28 @@ large_mammals</code></pre>
 ## 6        NA          NA 20.70   5.712 6654.000
 ## 7       1.0   0.9000000 19.60   0.169  207.501</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li><p>What is the mean weight for both the small and large
-mammals?</p></li>
-<li><p>Using a similar approach as above, do large or small animals
-sleep longer on average?</p></li>
-<li><p>Which animal is the sleepiest among the entire
-dataframe?</p></li>
+<li>What is the mean weight for both the small and large mammals?</li>
 </ol>
+<pre class="r"><code>mean(small_mammals$bodywt, na.rm = T)</code></pre>
+<pre><code>## [1] 1.797847</code></pre>
+<pre class="r"><code>mean(large_mammals$bodywt, na.rm = T)</code></pre>
+<pre><code>## [1] 1747.071</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>Using a similar approach as above, do large or small animals sleep
+longer on average?</li>
+</ol>
+<pre class="r"><code>max(small_mammals$sleep_total)</code></pre>
+<pre><code>## [1] 19.9</code></pre>
+<pre class="r"><code>max(small_mammals$sleep_total)</code></pre>
+<pre><code>## [1] 19.9</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>Which animal is the sleepiest among the entire dataframe?</li>
+</ol>
+<pre class="r"><code>filter(sleep, sleep_total==19.9)</code></pre>
+<pre><code>##               name  genus    vore      order conservation sleep_total sleep_rem
+## 1 Little brown bat Myotis insecti Chiroptera         &lt;NA&gt;        19.9         2
+##   sleep_cycle awake brainwt bodywt
+## 1         0.2   4.1 0.00025   0.01</code></pre>
 </div>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">

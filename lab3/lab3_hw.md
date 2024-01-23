@@ -415,15 +415,56 @@ large_mammals
 
 8. What is the mean weight for both the small and large mammals?
 
+```r
+mean(small_mammals$bodywt, na.rm = T)
+```
+
+```
+## [1] 1.797847
+```
 
 
+```r
+mean(large_mammals$bodywt, na.rm = T)
+```
+
+```
+## [1] 1747.071
+```
 
 9. Using a similar approach as above, do large or small animals sleep longer on average?  
 
 
+```r
+max(small_mammals$sleep_total)
+```
+
+```
+## [1] 19.9
+```
+
+```r
+max(small_mammals$sleep_total)
+```
+
+```
+## [1] 19.9
+```
+
 
 10. Which animal is the sleepiest among the entire dataframe?
 
+
+```r
+filter(sleep, sleep_total==19.9)
+```
+
+```
+##               name  genus    vore      order conservation sleep_total sleep_rem
+## 1 Little brown bat Myotis insecti Chiroptera         <NA>        19.9         2
+##   sleep_cycle awake brainwt bodywt
+## 1         0.2   4.1 0.00025   0.01
+```
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
