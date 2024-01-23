@@ -1,0 +1,58 @@
+---
+title: "lab_4_warmup"
+author: "Jocelyn Morales"
+date: "2024-01-23"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1. In a R markdown, load the tinyverse and a package called palmerpenguins
+
+```{r}
+library("tidyverse") 
+library(palmerpenguins)
+```
+
+### 2. What are the dimensions of the data set penguins? 
+
+```{r}
+penguins
+```
+```{r}
+dim(penguins)
+```
+
+### 3. What are the names of the variables in the penguins dataset?
+
+```{r}
+names(penguins)
+```
+
+```{r}
+glimpse(penguins) #different option to get variables
+```
+
+### 4. How many individuals were sampled on each island in the penguins dataset?
+
+```{r}
+penguins <- penguins 
+```
+
+```{r}
+table(penguins$island)
+```
+
+```{r}
+summary(penguins$island) #different option to use as well
+```
+
+### 5. What is the mean body mass for all individuals in the penguins dataset? 
+```{r}
+mean(penguins$body_mass_g, na.rm = T)
+```
+
