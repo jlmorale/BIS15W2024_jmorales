@@ -73,6 +73,9 @@ You can also extract observations "near" a certain value but you need to specify
 filter(fish, near(radii_length_mm, 2, tol = 0.2))
 ```
 
+tidyverse is a big library, dplyr can be used with 
+filter can be used with in the rows, or across the data frame
+
 ## Practice
 1. Filter the `fish` data to include the samples from lake "BO".
 ```{r}
