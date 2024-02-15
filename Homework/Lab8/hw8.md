@@ -1,11 +1,11 @@
 ---
 title: "Homework 8"
 author: "Jocelyn Morales"
-date: "2024-02-13"
+date: "2024-02-15"
 output:
   html_document: 
     theme: spacelab
-    keep_md: yes
+    keep_md: true
 ---
 
 
@@ -59,7 +59,7 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/jlmorale/Desktop/BIS15W2024_jmorales
+## here() starts at /Users/jocelynmorales/Desktop/BIS15W2024_jmorales
 ```
 
 The quotes show the folder structure from the root directory.
@@ -160,12 +160,52 @@ average_enterococci_cfu_100ml <-  sydneybeaches_long %>%
 8. Make the output from question 7 easier to read by pivoting it to wide format.
 
 ```r
-#average_enterococci_cfu_100ml %>% 
-#  pivot_wider(names_from = "year",
-#              values_from = "enterococci_cfu_100ml")
+average_enterococci_cfu_100ml %>% 
+ pivot_wider(names_from = "year",
+             values_from = "mean_enterococci_cfu_100ml")
+```
+
+```
+## # A tibble: 1 × 6
+##   `2013` `2014` `2015` `2016` `2017` `2018`
+##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+## 1   50.6   26.3   31.2   42.2   20.7   33.1
 ```
 
 9. What was the most polluted beach in 2013?
+
+```r
+sydneybeaches_wide %>% 
+  pivot_longer(-site,
+               names_to = "date",
+               values_to = "enterococci_cfu_100ml") %>% 
+  separate(date, into = c("day", "month","year", sep = "/")) %>% 
+  filter(year=="2013") %>% 
+  arrange(desc(enterococci_cfu_100ml))
+```
+
+```
+## Warning: Expected 4 pieces. Missing pieces filled with `NA` in 3784 rows [1, 2, 3, 4, 5,
+## 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
+```
+
+```
+## # A tibble: 638 × 6
+##    site                    day   month year  `/`   enterococci_cfu_100ml
+##    <chr>                   <chr> <chr> <chr> <chr>                 <dbl>
+##  1 Little Bay Beach        30    06    2013  <NA>                   4900
+##  2 Malabar Beach           30    06    2013  <NA>                   2500
+##  3 Maroubra Beach          31    12    2013  <NA>                   2100
+##  4 Malabar Beach           31    12    2013  <NA>                   1500
+##  5 South Maroubra Beach    31    12    2013  <NA>                   1200
+##  6 Bronte Beach            23    02    2013  <NA>                    780
+##  7 Tamarama Beach          12    06    2013  <NA>                    690
+##  8 Gordons Bay (East)      12    06    2013  <NA>                    660
+##  9 Coogee Beach            23    02    2013  <NA>                    630
+## 10 South Maroubra Rockpool 05    02    2013  <NA>                    630
+## # ℹ 628 more rows
+```
+
 
 10. Please complete the class project survey at: [BIS 15L Group Project](https://forms.gle/H2j69Z3ZtbLH3efW6)
 

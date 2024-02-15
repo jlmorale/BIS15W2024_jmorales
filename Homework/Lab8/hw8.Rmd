@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output:
   html_document: 
     theme: spacelab
-    keep_md: yes
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -91,12 +91,22 @@ average_enterococci_cfu_100ml <-  sydneybeaches_long %>%
 
 8. Make the output from question 7 easier to read by pivoting it to wide format.
 ```{r}
-#average_enterococci_cfu_100ml %>% 
-#  pivot_wider(names_from = "year",
-#              values_from = "enterococci_cfu_100ml")
+average_enterococci_cfu_100ml %>% 
+ pivot_wider(names_from = "year",
+             values_from = "mean_enterococci_cfu_100ml")
 ```
 
 9. What was the most polluted beach in 2013?
+```{r}
+sydneybeaches_wide %>% 
+  pivot_longer(-site,
+               names_to = "date",
+               values_to = "enterococci_cfu_100ml") %>% 
+  separate(date, into = c("day", "month","year", sep = "/")) %>% 
+  filter(year=="2013") %>% 
+  arrange(desc(enterococci_cfu_100ml))
+```
+
 
 10. Please complete the class project survey at: [BIS 15L Group Project](https://forms.gle/H2j69Z3ZtbLH3efW6)
 
